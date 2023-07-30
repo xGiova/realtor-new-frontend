@@ -11,5 +11,6 @@ export interface HouseContextInterface {
     properties: string[];
     price: string;
     setPrice: (price: string) => void;
+    handleClick: () => void;
 };
 

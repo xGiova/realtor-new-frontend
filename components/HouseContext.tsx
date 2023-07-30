@@ -15,7 +15,7 @@ const HouseContextProvider = ({ children }: any): ReactElement => {
   const [country, setCountry] = useState("Location (any)");
   const [countries, setCountries] = useState<string[]>([]);
   const [property, setProperty] = useState("Property type (any)");
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<string[]>([]);
   const [price, setPrice] = useState("Price range (any)");
   const [loading, setLoading] = useState(false);
 
@@ -27,6 +27,22 @@ const HouseContextProvider = ({ children }: any): ReactElement => {
     console.log({ uniqueCountries });
     setCountries(uniqueCountries);
   }, []);
+
+  useEffect(() => {
+    const allProperties = houses.map((house) => house.type);
+
+    console.log({ allProperties });
+
+    const uniqueProperties: string[] = Array.from(new Set(allProperties));
+
+    console.log({ uniqueProperties });
+
+    setProperties(uniqueProperties);
+  }, []);
+
+  const handleClick = () => {
+    console.log("clicked");
+  };
 
   return (
     <HouseContext.Provider
@@ -41,6 +57,7 @@ const HouseContextProvider = ({ children }: any): ReactElement => {
         setPrice,
         houses,
         loading,
+        handleClick,
       }}
     >
       {" "}
