@@ -1,10 +1,11 @@
 "use client";
 
-import {ReactElement} from "react";
+import {ReactElement, useContext} from "react";
 import CountryDropdown from "./CountryDropdown";
 import PropertyDropdown from "./PropertyDropdown";
 import PriceRangeDropdown from "./PriceRangeDropdown";
 import {RiSearch2Line} from 'react-icons/ri';
+import {HouseContext} from "./HouseContext";
 
 const Search = (): ReactElement => {
     return <div className="px-[30px] py-6 max-w-[1170px]
